@@ -1,5 +1,5 @@
 .app {
-    background-color: #ECF0F1;
+    background-color: #2C3F50;
 }
 
 .app-body {
@@ -12,15 +12,14 @@
 }
 
 .nav-bar {
-    background-color: #2C3F50;
-    color: #56CCF2;
+    background-color: #3297DB;
 }
 
 .nav-brand {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
-    color: #56CCF2;
+    color: #ECF0F1;
 
 }
 
@@ -44,5 +43,6 @@
     width: 40%;
     font-size: 1rem;
     padding: .5rem;
+    font-size: 1rem;
     border-radius: .5rem;
 }
