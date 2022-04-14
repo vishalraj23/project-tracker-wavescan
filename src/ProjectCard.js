@@ -1,7 +1,12 @@
 import './ProjectCard.css'
-import { Card, Button, Badge, Container } from 'react-bootstrap';;
+import ModalChart from './ModalChart';
+import { useState, useEffect } from "react";
+import { Card, Button, Badge, Container } from 'react-bootstrap';
 
 const ProjectCard = ({ projectData }) => {
+
+    const [modalShow, setModalShow] = useState(false);
+
     return (
         <Card className="project-card" >
             <Card.Img className="card-image" variant="top" src={projectData.img} />
@@ -15,7 +20,11 @@ const ProjectCard = ({ projectData }) => {
                     */}
             </Card.Body>
             <Container class="d-flex justify-content-center">
-                <Button className='card-button' size="sm">View More</Button>
+                <Button className='card-button' size="sm" onClick={() => setModalShow(true)}>View More</Button>
+                <ModalChart
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
             </Container>
         </Card >
     )
