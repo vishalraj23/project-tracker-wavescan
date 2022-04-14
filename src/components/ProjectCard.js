@@ -51,9 +51,6 @@ const ProjectCard = ({ projectData }) => {
                     MData.push(temp);
                 }
 
-                console.log(EData);
-                console.log(MData);
-
             } catch (error) {
                 console.log(error);
                 equipData = [];

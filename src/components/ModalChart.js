@@ -4,7 +4,7 @@ import PieChart from "./PieChart";
 
 const ModalChart = ({ show, onHide, equipmentData, materialData, projectData }) => {
 
-    const chartType = ['Pie Chart', 'Bar Chart'];
+    // const chartType = ['Pie Chart', 'Bar Chart'];
 
     const dataType = ['Equipment', 'Material'];
 

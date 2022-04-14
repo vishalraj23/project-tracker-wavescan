@@ -32,7 +32,6 @@ function App() {
             }
           }
         }
-        console.log(cardData);
 
       } catch (error) {
         console.log(error);
