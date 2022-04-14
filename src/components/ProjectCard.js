@@ -9,17 +9,17 @@ const ProjectCard = ({ projectData }) => {
     const [equipmentData, setEquipmentData] = useState([]);
     const [materialData, setMaterialData] = useState([]);
 
-
     useEffect(() => {
+
         (async () => {
+
             let equipData = {};
             let matData = {};
             const EData = [];
             const MData = [];
+            let temp = {};
 
             try {
-
-                let temp = {};
 
                 // Loop for Extarct Unique Datapoints & Frequency 
 
@@ -60,7 +60,7 @@ const ProjectCard = ({ projectData }) => {
             setMaterialData(MData);
 
         })();
-    }, []);
+    });
 
     return (
         <Card className="project-card" >
