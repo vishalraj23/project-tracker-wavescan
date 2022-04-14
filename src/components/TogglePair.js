@@ -1,29 +1,21 @@
-import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
 
 const TogglePair = ({ options }) => {
 
-    const [checked, setChecked] = useState(false);
     const [radioValue, setRadioValue] = useState('1');
+
     return (
         <>
-            <ButtonGroup>
-                {options.map((radio, idx) => (
-                    <ToggleButton
-                        key={idx}
-                        id={`radio-${idx}`}
-                        type="radio"
-                        variant={idx % 2 ? 'outline-success' : 'outline-danger'}
-                        name="radio"
-                        value={radio.value}
-                        checked={radioValue === radio.value}
-                        onChange={(e) => setRadioValue(e.currentTarget.value)}
-                    >
-                        {radio.name}
-                    </ToggleButton>
-                ))}
-            </ButtonGroup>
+            <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
+                <ToggleButton id="tbg-radio-1" value={1} onChange={() => setRadioValue('1')}>
+                    {options[0]}
+                </ToggleButton>
+                <ToggleButton id="tbg-radio-2" value={2} onChange={() => setRadioValue('2')}>
+                    {options[1]}
+                </ToggleButton>
+            </ToggleButtonGroup>
         </>
     );
 }

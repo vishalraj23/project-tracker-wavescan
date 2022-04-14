@@ -4,15 +4,9 @@ import PieChart from "./PieChart";
 
 const ModalChart = ({ show, onHide, equipmentData, materialData, projectData }) => {
 
-    const chartType = [
-        { name: 'Pie Chart', value: '1' },
-        { name: 'Bar Chart', value: '2' },
-    ];
+    const chartType = ['Pie Chart', 'Bar Chart'];
 
-    const dataType = [
-        { name: 'Equipment', value: '1' },
-        { name: 'Material', value: '2' },
-    ];
+    const dataType = ['Equipment', 'Material'];
 
     return (
         <Modal
@@ -28,19 +22,20 @@ const ModalChart = ({ show, onHide, equipmentData, materialData, projectData }) 
             </Modal.Header>
             <Modal.Body>
                 <Container class="d-flex justify-content-center">
-                    <TogglePair options={chartType}></TogglePair>
                     <TogglePair options={dataType}></TogglePair>
-                    <PieChart
-                        data={equipmentData}
-                        outerRadius={150}
-                        innerRadius={0}
-                    ></PieChart>
+                    <Container class="d-flex justify-content-center">
+                        <PieChart
+                            data={equipmentData}
+                            outerRadius={170}
+                            innerRadius={0}
+                        ></PieChart>
+                    </Container>
                 </Container>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="danger" onClick={onHide}>Close</Button>
             </Modal.Footer>
-        </Modal>
+        </Modal >
     );
 }
 
