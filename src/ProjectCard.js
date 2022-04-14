@@ -1,30 +1,21 @@
 import './ProjectCard.css'
-import { Card, Button } from 'react-bootstrap';;
+import { Card, Button, Badge, Container } from 'react-bootstrap';;
 
 const ProjectCard = ({ projectData }) => {
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={projectData.img} />
+        <Card className="project-card" >
+            <Card.Img className="card-image" variant="top" src={projectData.img} />
             <Card.Body>
-                <Card.Title>{projectData.title}</Card.Title>
-                <Card.Text>
-                    {projectData.description}
-                </Card.Text>
-                <Card.Text>
-                    Tag 1: {projectData.tags[0]}
-                </Card.Text>
-                <Card.Text>
-                    Tag 2: {projectData.tags[1]}
-                </Card.Text>
-                <Card.Text>
-                    Tag 3: {projectData.tags[2]}
-                </Card.Text>
-                <Card.Text>
-                    Tag 4: {projectData.tags[3]}
-                </Card.Text>
-                <Button variant="primary">View More</Button>
+                <Card.Title className='card-title'>{projectData.title}</Card.Title>
+                <Card.Text className='card-desc'>{projectData.description}</Card.Text>
+                <Badge className='card-tags'>{projectData.tags[0]}</Badge> <Badge className='card-tags'>{projectData.tags[1]}</Badge> <Badge className='card-tags'>{projectData.tags[2]}</Badge> <Badge className='card-tags'>{projectData.tags[3]}</Badge>
+                {/* 
+                {projectData.tags.map((item, index) => (
+                    <Badge className='card-tags'>{projectData.tags[index]}</Badge>))}
+                    */}
             </Card.Body>
-        </Card>
+            <Container class="d-flex justify-content-center"><Button className='card-button' size="sm">View More</Button></Container>
+        </Card >
     )
 };
 

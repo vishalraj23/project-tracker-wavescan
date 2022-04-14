@@ -1,7 +1,10 @@
-.card {
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+.project-card {
     margin: 2rem 2rem 2rem 0;
-    padding: 1.5rem;
-    width: 250px;
+    padding: 0rem;
+    padding-bottom: 0.5rem;
+    width: 18rem;
     box-shadow: 0 0 28px 4px rgba(0, 0, 0, 0.1);
     transition: transform .3s ease;
     cursor: pointer;
@@ -11,16 +14,59 @@
     transform: scale(1.1);
 }
 
-.card__title {
+.card-title {
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
-.card__image {
+.card-desc {
+    font-family: 'Roboto';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1rem;
+
+}
+
+.card-tags {
+    background-color: #E84C3D;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.7rem;
+    border-radius: 5px;
+
+}
+
+.card-button {
+    background-color: #2C3F50;
+    color: #ECF0F1;
+    border-radius: 5px;
+    width: 8rem;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+}
+
+.card-button:hover {
+    color: #2C3F50;
+    background-color: #ECF0F1;
+    border-radius: 5px;
+    width: 8rem;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+}
+
+.card-image {
+    height: 125px;
+    width: 286px;
     display: flex;
     justify-content: flex-end;
-}
 
-.card__image img {
-    border-radius: 50%;
 }

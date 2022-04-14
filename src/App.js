@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import Select from 'react-select';
 import ProjectCard from './ProjectCard';
+import { Navbar, Container, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
 function App() {
 
@@ -72,20 +73,44 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h1>WaveScan Projects Tracker</h1>
-      <input className="search-box" onInput={searchBar} placeholder="Search... (Enter atleast 3 words)" />
-      <Select
-        options={tagsData}
-        isMulti
-        onChange={opt => filterChange(opt)}
-      />
-      <div className="cards-container">
-        {projectData.map((item, index) => (
-          <ProjectCard key={index} projectData={item} />
-        ))}
-      </div>
-    </div >
+    <>
+      <Navbar className="nav-bar">
+        <Container>
+          <Navbar.Brand className='nav-brand'>
+            <img
+              alt=""
+              src="/pt-logo.jpg"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />
+            {' '}Project Tracker | WaveScan
+          </Navbar.Brand>
+          <OverlayTrigger
+            placement="bottom"
+            overlay={<Tooltip id="button-tooltip-2">Please enter 3 or more words to search!</Tooltip>}>
+            <input className="search-box" onInput={searchBar} placeholder="Search... (Enter atleast 3 words)" />
+          </OverlayTrigger>
+          <Select className="filter-box"
+            placeholder="Filter by Categories"
+            options={tagsData}
+            isMulti
+            onChange={opt => filterChange(opt)} />
+        </Container>
+      </Navbar>
+      <div className='app'>
+        <Container>
+          <div className="app-body">
+            <div className="cards-container">
+              {projectData.map((item, index) => (
+                <ProjectCard key={index} projectData={item} />
+              ))}
+            </div>
+          </div >
+        </Container>
+      </div >
+
+    </>
   );
 }
 

@@ -1,4 +1,8 @@
-.App {
+.app {
+    background-color: #ECF0F1;
+}
+
+.app-body {
     padding: 4rem;
 }
 
@@ -7,11 +11,38 @@
     flex-wrap: wrap;
 }
 
+.nav-bar {
+    background-color: #2C3F50;
+    color: #56CCF2;
+}
+
+.nav-brand {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    color: #56CCF2;
+
+}
+
 .search-box {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
     outline: none;
-    width: 100%;
-    border: 1px solid grey;
+    width: 40%;
+    height: 2.5rem;
     font-size: 1rem;
-    padding: 1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.filter-box {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    outline: none;
+    width: 40%;
+    font-size: 1rem;
+    padding: .5rem;
     border-radius: .5rem;
 }
