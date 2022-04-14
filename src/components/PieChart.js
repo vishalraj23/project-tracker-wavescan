@@ -17,7 +17,7 @@ const PieChart = ({ data, outerRadius, innerRadius, }) => {
 
     useEffect(() => {
         drawChart();
-    }, [data]);
+    });
 
     function drawChart() {
         // Remove the old svg
