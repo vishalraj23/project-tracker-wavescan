@@ -14,7 +14,9 @@ const ProjectCard = ({ projectData }) => {
                     <Badge className='card-tags'>{projectData.tags[index]}</Badge>))}
                     */}
             </Card.Body>
-            <Container class="d-flex justify-content-center"><Button className='card-button' size="sm">View More</Button></Container>
+            <Container class="d-flex justify-content-center">
+                <Button className='card-button' size="sm">View More</Button>
+            </Container>
         </Card >
     )
 };

@@ -9,17 +9,22 @@ function App() {
   const [allCards, setAllCards] = useState([]);
   const [projectData, setProjectData] = useState([]);
   const [tagsData, setTagsData] = useState([]);
-
+  const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
     (async () => {
       let cardData;
       let uniqueTags = [];
+      let EMData = {};
+
       try {
+        // Get JSON DATA 
         const response = await fetch("https://WaveScan-Frontend-Assessment.saurabhmudgal.repl.co");
         cardData = await response.json();
         const allTags = [];
         let temp = {};
+
+        // Loop for Unique Tags
         for (let i = 0; i < cardData.length; i++) {
           for (let j = 0; j < cardData[i].tags.length; j++) {
             if (allTags.includes(cardData[i].tags[j])) { }
@@ -30,7 +35,31 @@ function App() {
             }
           }
         }
-        console.log(uniqueTags);
+        // Loop for Extarct Unique Datapoints & Frequency 
+        for (let i = 0; i < cardData.length; i++) {
+
+          // Loop for Equipment
+          for (let j = 0; j < cardData[i].data.equipment.length; j++) {
+            if (cardData[i].data.equipment[j] in EMData) {
+              EMData[cardData[i].data.equipment[j]] = EMData[cardData[i].data.equipment[j]] + 1;
+            } else {
+              EMData[cardData[i].data.equipment[j]] = 1;
+            }
+          }
+
+          // Loop for Material
+          for (let j = 0; j < cardData[i].data.material.length; j++) {
+            if (cardData[i].data.material[j] in EMData) {
+              EMData[cardData[i].data.material[j]] = EMData[cardData[i].data.material[j]] + 1;
+            } else {
+              EMData[cardData[i].data.material[j]] = 1;
+            }
+          }
+
+        }
+
+        console.log(EMData);
+
       } catch (error) {
         console.log(error);
         cardData = [];
@@ -38,6 +67,7 @@ function App() {
       setAllCards(cardData);
       setProjectData(cardData);
       setTagsData(uniqueTags);
+      setGraphData(EMData);
     })();
   }, []);
 
