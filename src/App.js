@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import Select from 'react-select';
-import ProjectCard from './ProjectCard';
+import ProjectCard from './components/ProjectCard';
 import { Navbar, Container, Tooltip, OverlayTrigger } from 'react-bootstrap'
 
 function App() {
@@ -9,14 +9,11 @@ function App() {
   const [allCards, setAllCards] = useState([]);
   const [projectData, setProjectData] = useState([]);
   const [tagsData, setTagsData] = useState([]);
-  const [graphData, setGraphData] = useState([]);
 
   useEffect(() => {
     (async () => {
       let cardData;
       let uniqueTags = [];
-      let EMData = {};
-
       try {
         // Get JSON DATA 
         const response = await fetch("https://WaveScan-Frontend-Assessment.saurabhmudgal.repl.co");
@@ -35,30 +32,7 @@ function App() {
             }
           }
         }
-        // Loop for Extarct Unique Datapoints & Frequency 
-        for (let i = 0; i < cardData.length; i++) {
-
-          // Loop for Equipment
-          for (let j = 0; j < cardData[i].data.equipment.length; j++) {
-            if (cardData[i].data.equipment[j] in EMData) {
-              EMData[cardData[i].data.equipment[j]] = EMData[cardData[i].data.equipment[j]] + 1;
-            } else {
-              EMData[cardData[i].data.equipment[j]] = 1;
-            }
-          }
-
-          // Loop for Material
-          for (let j = 0; j < cardData[i].data.material.length; j++) {
-            if (cardData[i].data.material[j] in EMData) {
-              EMData[cardData[i].data.material[j]] = EMData[cardData[i].data.material[j]] + 1;
-            } else {
-              EMData[cardData[i].data.material[j]] = 1;
-            }
-          }
-
-        }
-
-        console.log(EMData);
+        console.log(cardData);
 
       } catch (error) {
         console.log(error);
@@ -67,7 +41,6 @@ function App() {
       setAllCards(cardData);
       setProjectData(cardData);
       setTagsData(uniqueTags);
-      setGraphData(EMData);
     })();
   }, []);
 
