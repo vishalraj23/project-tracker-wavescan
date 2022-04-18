@@ -2,7 +2,7 @@ import { Modal, Button, Container } from "react-bootstrap";
 import TogglePair from "./TogglePair";
 import PieChart from "./PieChart";
 
-const ModalChart = ({ show, onHide, equipmentData, materialData, projectData }) => {
+function ModalChart({ show, onHide, equipmentData, materialData, projectData }) {
 
     // const chartType = ['Pie Chart', 'Bar Chart'];
 

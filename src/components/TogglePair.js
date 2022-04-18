@@ -1,6 +1,6 @@
 import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
 
-const TogglePair = ({ options }) => {
+function TogglePair({ options }) {
 
     return (
         <>

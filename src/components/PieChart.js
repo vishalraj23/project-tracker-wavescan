@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
 
-const PieChart = ({ data, outerRadius, innerRadius, }) => {
+function PieChart({ data, outerRadius, innerRadius, }) {
 
     const margin = {
         top: 50, right: 50, bottom: 50, left: 50,
